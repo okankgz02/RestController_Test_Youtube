@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -21,16 +22,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
+
 public class HelloResourceTest {
   @Mock HelloService helloService; // bu when then için dönen sonuc
 
   private MockMvc mockMvc;
 
-  @InjectMocks private HelloResource helloResource; // Controlller
+  @InjectMocks
+  private HelloResourceController helloResourceController; // Controlller
 
   @Before
   public void setup() throws Exception {
-    mockMvc = MockMvcBuilders.standaloneSetup(helloResource).build();
+    mockMvc = MockMvcBuilders.standaloneSetup(helloResourceController).build();
   }
 
   @Test

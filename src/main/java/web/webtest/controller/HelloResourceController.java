@@ -6,11 +6,11 @@ import web.webtest.servis.HelloService;
 
 @RestController
 @RequestMapping("/hello")
-public class HelloResource {
+public class HelloResourceController {
 
   private HelloService helloService; // @InjectMocks ile içi otomatik dolacak
 
-  public HelloResource(HelloService helloService) {
+  public HelloResourceController(HelloService helloService) {
     this.helloService = helloService;
   }
 
